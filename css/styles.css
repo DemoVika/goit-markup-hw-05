@@ -7,9 +7,9 @@
 --secondary-background-color: rgb(231, 233, 252); /*CORNFLOWER */
 --background-color-team: rgb(244, 244, 253, 1); /* CLOUD */
 --accent-gray: #8E8F99;/* LIGHT SLATE */
+--main-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+--main-duration: 250ms;
 }
-
-
 
 ul {
     list-style: none;
@@ -88,7 +88,7 @@ color: var(--accent-color);
 }
 
 .menu-item {
-    position: relative;
+position: relative;
 font-weight: 500;
 line-height: 1.5;
 letter-spacing: 0.02em;
@@ -118,6 +118,10 @@ font-style: normal;
 line-height: 1.5;
 letter-spacing: 0.02em;
 color: var(--main-secondary-color);
+
+transition-property: color;
+transition-duration: var(--main-duration);
+transition-timing-function: var(--main-timing-function);
  }
 
  .email { 
@@ -192,8 +196,8 @@ opacity: 1;
 
 
 transition-property: transform opacity;
-transition-duration: 250ms;
-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+transition-duration: var(--main-duration);
+transition-timing-function: var(--main-timing-function);
 }
 
 .button-modal {
@@ -203,10 +207,12 @@ height: 24px;
 top: 24px;
 right: 24px;
 border-radius: 50%;
-margin-left: 0;
-margin-right: 0;
 background-color: var(--secondary-background-color);
 fill: var(--main-title-color);
+
+transition-property: background-color, fill;
+transition-duration: var(--main-duration);
+transition-timing-function: var(--main-timing-function);
 }
 
 .button-modal:hover {
@@ -214,6 +220,12 @@ background-color: var(--secondary-accent-color);
 fill: var(--main-background-color);    
 }
 
+.button-modal > svg {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
 
 .visually-hidden {
 position: absolute;
@@ -336,15 +348,18 @@ border-radius: 50%;
 justify-content: center;
 align-items: center;
 
+transition-property: background-color;
+transition-duration: var(--main-duration);
+transition-timing-function: var(--main-timing-function);
 }
 
 .social-link:hover,
 .social-link:focus {
-    background-color: var(--secondary-accent-color);
+background-color: var(--secondary-accent-color);
 }
 
 .social-link:last-child {
-    margin-right: 0;
+margin-right: 0;
 }
 
 .container-social-list {
@@ -392,10 +407,12 @@ align-items: center;
 border: 1px solid var(--accent-gray);
 border-radius: 4px;
 fill: var(--accent-gray);
+
+transition-property: border-color, fill;
+transition-duration: var(--main-duration);
+transition-timing-function: var(--main-timing-function);
 }
 
-.customers-icon {
-}
 
 .customers-link:hover,
 .customers-link:focus {
@@ -440,6 +457,14 @@ box-shadow:
 }
 .application-link {
 display: block;
+box-shadow:
+0px 1px 6px rgba(46, 47, 66, 0),
+0px 1px 1px rgba(46, 47, 66, 0),
+0px 2px 1px rgba(46, 47, 66, 0);
+
+transition-property: box-shadow;
+transition-duration: var(--main-duration);
+transition-timing-function: var(--main-timing-function);
 }
 
 .application-item:not(:nth-child(3n)) {
@@ -470,8 +495,8 @@ transform: translateY(100%);
 
 
 transition-property: transform;
-transition-duration: 250ms;
-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+transition-duration: var(--main-duration);
+transition-timing-function: var(--main-timing-function);
 
 }
 .overlay-wrapper:hover {
@@ -492,10 +517,13 @@ color: var(--secondary-accent-color);
 }
 
 
+
 .menu-link {
 color: var(--main-title-color);
-transition-property: background-color;
-transition-timing-function: linear;   
+
+transition-property: color;
+transition-duration: var(--main-duration);
+transition-timing-function: var(--main-timing-function);
 }
 
 .active::after {
@@ -532,6 +560,10 @@ margin-right: auto;
 margin-left: auto;
 display: block;
 box-shadow: 0 4px rgba(0, 0, 0, 0.15);
+
+transition-property: background-color;
+transition-duration: var(--main-duration);
+transition-timing-function: var(--main-timing-function);
 }
 
 .button-main:is(:hover, :focus) {
@@ -553,6 +585,12 @@ padding-right: 24px;
 padding-bottom: 12px;
 padding-left: 24px;
 border: transparent;
+box-shadow: 0px 3px 1px rgba(0, 0, 0, 0), 0px 2px 1px rgba(0, 0, 0, 0), 0px 2px 2px rgba(0, 0, 0, 0);
+
+
+transition-property: color, box-shadow, background-color;
+transition-duration: var(--main-duration);
+transition-timing-function: var(--main-timing-function);
 }
 
 .button-portfolio:is(:hover, :focus) { 
@@ -561,12 +599,12 @@ color: var(--main-background-color);
 box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
 }
 .card {
-    padding-top: 32px;
-    padding-bottom: 32px;
-    padding-left: 16px;
-    border-bottom: 1px solid var(--secondary-background-color);
-    border-left: 1px solid var(--secondary-background-color);
-    border-right: 1px solid var(--secondary-background-color);
+padding-top: 32px;
+padding-bottom: 32px;
+padding-left: 16px;
+border-bottom: 1px solid var(--secondary-background-color);
+border-left: 1px solid var(--secondary-background-color);
+border-right: 1px solid var(--secondary-background-color);
 }
 
 /* =============================FOOTER========================= */
@@ -628,10 +666,14 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 border-radius: 50%; 
 justify-content: center;
 align-items: center;
+
+transition-property: background-color;
+transition-duration: var(--main-duration);
+transition-timing-function: var(--main-timing-function);
 }
 
 
 .social-media-link:hover,
 .social-media-link:focus {
-    background: rgba(49, 208, 170, 1);
+background: rgba(49, 208, 170, 1);
 }
